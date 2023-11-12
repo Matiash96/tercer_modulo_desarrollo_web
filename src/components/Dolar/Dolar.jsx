@@ -41,13 +41,13 @@ export const Dolar = () => {
 
     return (
         <div>
-            <h1>Cotización del dolar blue</h1>
             {
                 dolarBlue ? (
-                    <div>
+                    <div className='divDolar'>
+                        <h3>Dólar blue</h3>
+                        <p>{fechaFormateada}</p>
                         <p>Compra: ${dolarBlue.compra}</p>
                         <p>Venta: ${dolarBlue.venta}</p>
-                        <p>Fecha de actualización: {fechaFormateada}</p>
                     </div>
                 ):(
                     <p>Cargando...</p>

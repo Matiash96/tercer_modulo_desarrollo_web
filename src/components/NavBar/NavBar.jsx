@@ -11,8 +11,10 @@ export const NavBar = () => {
                 </Link>
                 <Link className='link nombre-tienda' to="/">Pesca-Mar</Link>
             </div>
-            <Link className='link nav-link' to="/canias">Cañas</Link>
-            <Link className='link nav-link' to="/reeles">Reeles</Link>
+            <div className='div-nav-link'>
+                <Link className='link nav-link' to="/canias">Cañas</Link>
+                <Link className='link nav-link' to="/reeles">Reeles</Link>
+            </div>
         </div>
     )
 }
