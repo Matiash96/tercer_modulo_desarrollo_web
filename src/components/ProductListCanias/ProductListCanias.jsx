@@ -32,16 +32,42 @@ export const ProductListCanias = () => {
             icon: 'success',
             confirmButtonText: 'OK',
         });
-    
+    }
+
+    const cargando = () =>{
+        let timerInterval;
+        Swal.fire({
+        title: "Cargando...",
+        timer: 400,
+        didOpen: () => {
+            Swal.showLoading();
+            const timer = Swal.getPopup().querySelector("b");
+
+            if (timer) {
+                // Actualiza el contenido del elemento cada segundo
+                timerInterval = setInterval(() => {
+                // Convierte milisegundos a segundos y redondea
+                const secondsLeft = Math.round(Swal.getTimerLeft() / 1000);
+                timer.textContent = `${secondsLeft}s`;
+                }, 1000);
+            }
+        },
+        willClose: () => {
+            clearInterval(timerInterval);
+        }
+        }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+            console.log("I was closed by the timer");
+        }
+        });
     }
 
     return (
         <>  
             <div className='body-card-list'>
-                {loading ? (
-                    // Aquí puedes mostrar una pantalla de carga
-                    <div className='cargando'>Cargando...</div>
-                ) : (
+                {loading ? ( cargando() ) : 
+                (
                     <div className='card-list'>
                         {items.map((item) => (
                             <div key={item.id} className='card'>

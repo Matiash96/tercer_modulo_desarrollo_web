@@ -5,6 +5,6 @@ export const pedirCanias = () =>{
         setTimeout(() =>{
             resolve(stockCanias)
             reject(('Error'))
-        }, 500) //1 segundo es == 1000 milésimas
+        }, 500)
     })
 }
